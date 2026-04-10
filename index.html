@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>IntelliVoid - AI Work Partners for Luxury Real Estate</title>
+<style>
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --black: #0A0A0A;
+  --off-black: #111111;
+  --dark: #161616;
+  --card-bg: #1A1A1A;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --white: #FFFFFF;
+  --off-white: #F0EEE8;
+  --muted: #888780;
+  --subtle: #444441;
+  --accent: #C9B97A;
+  --accent-dark: #A8983F;
+  --accent-light: #E8D89A;
+  --purple: #7F77DD;
+  --radius: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.display { font-size: clamp(42px, 7vw, 88px); font-weight: 600; line-height: 1.0; letter-spacing: -0.03em; }
+.display-sm { font-size: clamp(32px, 5vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -0.025em; }
+.heading { font-size: clamp(22px, 3vw, 32px); font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; }
+.subheading { font-size: clamp(16px, 2vw, 20px); font-weight: 400; color: var(--muted); line-height: 1.6; }
+.label { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.body-text { font-size: 15px; color: var(--muted); line-height: 1.75; }
+.accent-text { color: var(--accent); }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 100px 0; }
+.section-sm { padding: 60px 0; }
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 0;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+}
+nav.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+  padding: 14px 0;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-size: 18px; font-weight: 600; letter-spacing: -0.02em; }
+.nav-logo span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 24px; flex-wrap: nowrap; }
+.nav-link { font-size: 14px; color: var(--muted); transition: color 0.2s; }
+.nav-link:hover { color: var(--white); }
+.nav-cta {
+  font-size: 13px; font-weight: 500;
+  padding: 9px 20px;
+  background: var(--accent);
+  color: var(--black);
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--accent-light); }
+.nav-mobile-hide { display: flex; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(201,185,122,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(127,119,221,0.05) 0%, transparent 60%);
+}
+.hero-grid {
+  position: absolute; inset: 0; z-index: 0; opacity: 0.03;
+  background-image: linear-gradient(var(--white) 1px, transparent 1px), linear-gradient(90deg, var(--white) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 28px; }
+.hero-eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.hero-eyebrow-text { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+.hero-title { margin-bottom: 24px; }
+.hero-title em { font-style: italic; color: var(--accent); }
+.hero-sub { font-size: clamp(16px, 2vw, 19px); color: var(--muted); line-height: 1.7; max-width: 560px; margin-bottom: 44px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500;
+  padding: 13px 28px;
+  background: var(--accent);
+  color: var(--black);
+  border-radius: var(--radius);
+  border: none; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 400;
+  padding: 13px 28px;
+  background: transparent;
+  color: var(--muted);
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+.hero-scroll { margin-top: 80px; display: flex; align-items: center; gap: 12px; color: var(--subtle); font-size: 12px; letter-spacing: 0.05em; }
+.hero-scroll-line { width: 40px; height: 1px; background: var(--subtle); }
+
+/* ============================================================
+   LOGOS / SOCIAL PROOF BAR
+   ============================================================ */
+.proof-bar {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.proof-inner { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; }
+.proof-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.proof-divider { width: 1px; height: 20px; background: var(--border); }
+.proof-items { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
+.proof-item { font-size: 14px; font-weight: 500; color: var(--muted); letter-spacing: -0.01em; }
+
+/* ============================================================
+   PROBLEM SECTION
+   ============================================================ */
+.problem-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px; }
+.problem-card {
+  background: var(--card-bg);
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+.problem-card:first-child { border-radius: var(--radius-lg) 0 0 0; }
+.problem-card:nth-child(2) { border-radius: 0 var(--radius-lg) 0 0; }
+.problem-card:nth-child(3) { border-radius: 0 0 0 var(--radius-lg); }
+.problem-card:last-child { border-radius: 0 0 var(--radius-lg) 0; }
+.problem-num { font-size: 48px; font-weight: 600; color: var(--border-strong); line-height: 1; margin-bottom: 16px; letter-spacing: -0.03em; }
+.problem-title { font-size: 17px; font-weight: 500; color: var(--white); margin-bottom: 8px; }
+.problem-text { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+/* ============================================================
+   PRODUCT SECTION
+   ============================================================ */
+.product-header { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 60px; }
+.tools-list { display: flex; flex-direction: column; gap: 2px; }
+.tool-item {
+  display: flex; align-items: center; gap: 20px;
+  padding: 24px 28px;
+  background: var(--card-bg);
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 2px solid transparent;
+}
+.tool-item:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.tool-item:last-child { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.tool-item:hover, .tool-item.active { background: #1F1F1F; border-left-color: var(--accent); }
+.tool-icon-wrap {
+  width: 40px; height: 40px; border-radius: var(--radius);
+  background: rgba(201,185,122,0.1);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.tool-info { flex: 1; }
+.tool-item-name { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 2px; }
+.tool-item-desc { font-size: 13px; color: var(--muted); }
+.tool-arrow { color: var(--subtle); font-size: 18px; transition: transform 0.2s; }
+.tool-item:hover .tool-arrow, .tool-item.active .tool-arrow { transform: translateX(3px); color: var(--accent); }
+
+/* ============================================================
+   DEMO PREVIEW
+   ============================================================ */
+.demo-wrap {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  margin-top: 60px;
+}
+.demo-bar { background: var(--dark); padding: 14px 20px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); }
+.demo-dot { width: 10px; height: 10px; border-radius: 50%; }
+.demo-url { flex: 1; background: rgba(255,255,255,0.05); border-radius: 6px; padding: 5px 14px; font-size: 12px; color: var(--subtle); margin: 0 12px; }
+.demo-inner { padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.demo-input-group { display: flex; flex-direction: column; gap: 14px; }
+.demo-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+.demo-input {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.demo-output-group { display: flex; flex-direction: column; gap: 10px; }
+.demo-output-block {
+  background: rgba(201,185,122,0.06);
+  border: 1px solid rgba(201,185,122,0.15);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.demo-output-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 6px; }
+.demo-output-text { font-size: 13px; color: var(--off-white); line-height: 1.55; }
+
+/* ============================================================
+   STATS
+   ============================================================ */
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 60px; }
+.stat-card { background: var(--card-bg); padding: 40px 32px; text-align: center; }
+.stat-card:first-child { border-radius: var(--radius-lg) 0 0 var(--radius-lg); }
+.stat-card:last-child { border-radius: 0 var(--radius-lg) var(--radius-lg) 0; }
+.stat-num { font-size: 48px; font-weight: 600; letter-spacing: -0.03em; color: var(--white); line-height: 1; margin-bottom: 8px; }
+.stat-num span { color: var(--accent); }
+.stat-label { font-size: 13px; color: var(--muted); }
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px; }
+.pricing-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 36px 32px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.pricing-card:hover { border-color: var(--border-strong); }
+.pricing-card.featured {
+  background: var(--dark);
+  border: 1px solid var(--accent);
+}
+.pricing-badge {
+  position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+  background: var(--accent); color: var(--black);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 999px;
+  white-space: nowrap;
+}
+.pricing-tier { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.pricing-price { font-size: 44px; font-weight: 600; letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px; }
+.pricing-price span { font-size: 18px; font-weight: 400; color: var(--muted); }
+.pricing-cadence { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+.pricing-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+.pricing-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.pricing-feat { display: flex; gap: 10px; align-items: flex-start; }
+.feat-icon { width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.feat-icon-on { background: rgba(201,185,122,0.15); }
+.feat-icon-off { background: rgba(255,255,255,0.05); }
+.feat-check { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.feat-dash { width: 8px; height: 1px; background: var(--subtle); }
+.feat-text { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.feat-text.on { color: var(--off-white); }
+.pricing-cta {
+  display: block; text-align: center;
+  font-size: 14px; font-weight: 500;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-strong);
+  color: var(--muted);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+.pricing-cta:hover { color: var(--white); border-color: rgba(255,255,255,0.3); }
+.pricing-cta.featured-cta {
+  background: var(--accent);
+  color: var(--black);
+  border-color: transparent;
+}
+.pricing-cta.featured-cta:hover { background: var(--accent-light); }
+.pricing-note { text-align: center; margin-top: 24px; font-size: 13px; color: var(--subtle); }
+.pricing-note a { color: var(--accent); }
+
+/* ============================================================
+   FOUNDING PARTNER SECTION
+   ============================================================ */
+.founding-wrap {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.founding-glow {
+  position: absolute; top: -60px; left: 50%; transform: translateX(-50%);
+  width: 400px; height: 200px;
+  background: radial-gradient(ellipse, rgba(201,185,122,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.founding-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,185,122,0.1);
+  border: 1px solid rgba(201,185,122,0.2);
+  border-radius: 999px;
+  padding: 6px 16px;
+  margin-bottom: 24px;
+}
+.founding-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.founding-badge-text { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); }
+.founding-title { margin-bottom: 16px; }
+.founding-sub { font-size: 16px; color: var(--muted); max-width: 520px; margin: 0 auto 36px; line-height: 1.7; }
+.founding-form { display: flex; gap: 10px; max-width: 480px; margin: 0 auto 16px; }
+.founding-input {
+  flex: 1; padding: 13px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  color: var(--white); font-size: 14px;
+  outline: none; transition: border-color 0.2s;
+}
+.founding-input::placeholder { color: var(--subtle); }
+.founding-input:focus { border-color: var(--accent); }
+.founding-disclaimer { font-size: 12px; color: var(--subtle); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  padding: 48px 0 32px;
+  border-top: 1px solid var(--border);
+}
+.footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+.footer-logo { font-size: 16px; font-weight: 600; letter-spacing: -0.02em; }
+.footer-logo span { color: var(--accent); }
+.footer-links { display: flex; gap: 28px; }
+.footer-link { font-size: 13px; color: var(--subtle); transition: color 0.2s; }
+.footer-link:hover { color: var(--muted); }
+.footer-copy { font-size: 12px; color: var(--subtle); }
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section-header { max-width: 640px; }
+.section-header-centered { max-width: 640px; margin: 0 auto; text-align: center; }
+.section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.section-eyebrow-centered { justify-content: center; }
+.section-eyebrow-line { width: 24px; height: 1px; background: var(--accent); }
+.section-title { margin-bottom: 16px; }
+.section-sub { font-size: 17px; color: var(--muted); line-height: 1.7; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-mobile-hide { display: none; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .problem-card:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .problem-card:nth-child(2) { border-radius: 0; }
+  .problem-card:nth-child(3) { border-radius: 0; }
+  .problem-card:last-child { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+  .product-header { grid-template-columns: 1fr; gap: 32px; }
+  .demo-inner { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-card:first-child { border-radius: var(--radius-lg) 0 0 0; }
+  .stat-card:nth-child(2) { border-radius: 0 var(--radius-lg) 0 0; }
+  .stat-card:nth-child(3) { border-radius: 0 0 0 var(--radius-lg); }
+  .stat-card:last-child { border-radius: 0 0 var(--radius-lg) 0; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .founding-wrap { padding: 40px 24px; }
+  .founding-form { flex-direction: column; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .section { padding: 70px 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">Intelli<span>Void</span></div>
+      <div class="nav-links nav-mobile-hide">
+        <a href="#product" class="nav-link">Product</a>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#founding" class="nav-link">Founding partners</a>
+      </div>
+      <a href="#founding" class="nav-cta nav-mobile-hide">Apply for early access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        <div class="hero-eyebrow-text">AI work partners for luxury real estate</div>
+      </div>
+      <h1 class="display hero-title">
+        Your sales team.<br>
+        <em>Supercharged.</em>
+      </h1>
+      <p class="hero-sub">IntelliEstate gives luxury new development professionals an AI platform that handles the work - so they can focus on what only humans can do.</p>
+      <div class="hero-actions">
+        <a href="#founding" class="btn-primary">Apply for early access →</a>
+        <a href="#product" class="btn-ghost">See how it works</a>
+      </div>
+      <div class="hero-scroll">
+        <div class="hero-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF BAR -->
+<div class="proof-bar">
+  <div class="container">
+    <div class="proof-inner">
+      <div class="proof-label">Built for teams selling at</div>
+      <div class="proof-divider"></div>
+      <div class="proof-items">
+        <div class="proof-item">Nine Elms</div>
+        <div class="proof-item">White City</div>
+        <div class="proof-item">Canary Wharf</div>
+        <div class="proof-item">Chelsea</div>
+        <div class="proof-item">Mayfair</div>
+        <div class="proof-item">Battersea</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section" id="problem">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">
+        <div class="section-eyebrow-line"></div>
+        <div class="label">The problem</div>
+      </div>
+      <h2 class="display-sm section-title">Luxury buyers expect more.<br>Your team has less time.</h2>
+      <p class="section-sub">The gap between expectation and capacity is where deals are lost. Every day.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-num">01</div>
+        <div class="problem-title">Leads go cold while follow-ups wait</div>
+        <div class="problem-text">A warm buyer visits on Friday. A generic email goes out Monday. By then, they've seen three other developments and your moment has passed.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">02</div>
+        <div class="problem-title">Copy takes hours that agents don't have</div>
+        <div class="problem-text">Writing polished, on-brand descriptions for 40 units across a development shouldn't take a week. But it does, and it shows when it's rushed.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">03</div>
+        <div class="problem-title">Hesitant buyers don't get the evidence they need</div>
+        <div class="problem-text">A buyer on the fence needs a compelling market case. Pulling comparable data and writing a convincing narrative takes time most agents don't have mid-day.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-num">04</div>
+        <div class="problem-title">CRM notes never get written properly</div>
+        <div class="problem-text">The detail from a great site visit - buyer preferences, objections, personal notes - lives in someone's head or a voice memo. Until it's forgotten.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="section" id="product" style="background: var(--off-black); margin: 0; padding: 100px 0;">
+  <div class="container">
+    <div class="product-header">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <div class="label">IntelliEstate</div>
+        </div>
+        <h2 class="display-sm section-title">Eight AI work partners.<br>One platform.</h2>
+      </div>
+      <p class="section-sub">Each tool is built around a specific moment in the luxury sales day; not a generic AI assistant, but a specialist that knows your world.</p>
+    </div>
+
+    <div class="tools-list">
+
+      <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
+        <div class="tool-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 4h14v9a1 1 0 01-1 1H3a1 1 0 01-1-1V4z" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M2 4l7 6 7-6" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-item-name">Follow-Up Agent <span style="font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);background:rgba(201,185,122,0.1);border:1px solid rgba(201,185,122,0.2);border-radius:999px;padding:2px 7px;margin-left:8px;vertical-align:middle;">Demo available</span></div>
+          <div class="tool-item-desc">Personalised follow-up emails after every site visit, referencing exactly what the buyer saw, said and felt.</div>
+        </div>
+        <div class="tool-arrow">&#8594;</div>
+      </div>
+
+      <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
+        <div class="tool-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 3h14v8a1 1 0 01-1 1H3a1 1 0 01-1-1V3z" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M9 12v4M6 16h6" stroke="#C9B97A" stroke-width="1.3" stroke-linecap="round" fill="none"/><circle cx="9" cy="7.5" r="2" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-item-name">Sales Progression Agent <span style="font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:#5DCAA5;background:rgba(29,158,117,0.08);border:1px solid rgba(29,158,117,0.2);border-radius:999px;padding:2px 7px;margin-left:8px;vertical-align:middle;">New &middot; Demo available</span></div>
+          <div class="tool-item-desc">Handles post-reservation buyer updates, solicitor chasing and exchange progression - the task that eats 34% of every agent's working day.</div>
+        </div>
+        <div class="tool-arrow">&#8594;</div>
+      </div>
+
+      <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
+        <div class="tool-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="2.5" rx="1.25" fill="#C9B97A"/><rect x="2" y="7" width="10" height="2.5" rx="1.25" fill="#C9B97A" opacity="0.6"/><rect x="2" y="12" width="12" height="2.5" rx="1.25" fill="#C9B97A" opacity="0.4"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-item-name">Listing Copy Writer <span style="font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);background:rgba(201,185,122,0.1);border:1px solid rgba(201,185,122,0.2);border-radius:999px;padding:2px 7px;margin-left:8px;vertical-align:middle;">Demo available</span></div>
+          <div class="tool-item-desc">Polished headlines, descriptions and social captions in seconds - including an off-plan mode for properties that do not exist yet.</div>
+        </div>
+        <div class="tool-arrow">&#8594;</div>
+      </div>
+
+      <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
+        <div class="tool-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="12" width="3" height="5" rx="1" fill="#C9B97A" opacity="0.4"/><rect x="7.5" y="7" width="3" height="10" rx="1" fill="#C9B97A" opacity="0.7"/><rect x="13" y="2" width="3" height="15" rx="1" fill="#C9B97A"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-item-name">Investor Pack Builder <span style="font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:#5DCAA5;background:rgba(29,158,117,0.08);border:1px solid rgba(29,158,117,0.2);border-radius:999px;padding:2px 7px;margin-left:8px;vertical-align:middle;">New &middot; Demo available</span></div>
+          <div class="tool-item-desc">Generates professional investor summaries covering gross yield, capital growth case and area fundamentals - the document agents currently produce manually.</div>
+        </div>
+        <div class="tool-arrow">&#8594;</div>
+      </div>
+
+      <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
+        <div class="tool-icon-wrap">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="7" r="3.5" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M2 16c0-3.866 3.134-6 7-6s7 2.134 7 6" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
+        </div>
+        <div class="tool-info">
+          <div class="tool-item-name">Tour Prep Briefing <span style="font-size:10px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);background:rgba(201,185,122,0.1);border:1px solid rgba(201,185,122,0.2);border-radius:999px;padding:2px 7px;margin-left:8px;vertical-align:middle;">Demo available</span></div>
+          <div class="tool-item-desc">Walk into every viewing fully prepared - personalised buyer briefing, talking points, likely objections and a suggested close.</div>
+        </div>
+        <div class="tool-arrow">&#8594;</div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:32px;">
+      <a href="features.html" style="display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--black);background:var(--accent);padding:12px 28px;border-radius:var(--radius);text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#E8D89A'" onmouseout="this.style.background='#C9B97A'">See all 8 work partners and demos &rarr;</a>
+    </div>
+
+<!-- STATS -->
+<section class="section-sm">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-label">Hours saved per agent, per week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">10<span>secs</span></div>
+        <div class="stat-label">To generate a full listing copy suite</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Specialist AI work partners</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Platform. One login. Everything.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section" id="pricing" style="background: var(--off-black); margin: 0; padding: 100px 0;">
+  <div class="container">
+    <div class="section-header-centered">
+      <div class="section-eyebrow section-eyebrow-centered">
+        <div class="section-eyebrow-line"></div>
+        <div class="label">Pricing</div>
+        <div class="section-eyebrow-line"></div>
+      </div>
+      <h2 class="display-sm section-title">Less than the cost of<br>one lost deal.</h2>
+      <p class="section-sub">A single commission on a luxury new development pays for IntelliEstate many times over. The question isn't whether you can afford it - it's how many deals you can afford to lose without it.</p>
+    </div>
+
+    <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Solo</div>
+        <div class="pricing-price">£500<span>/mo</span></div>
+        <div class="pricing-cadence">1 user, all 8 tools, billed monthly</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Listing Copy Writer</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Follow-Up Agent</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Market Report Builder</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">CRM Note Taker</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Tour Prep Briefing</div></div>
+        </div>
+        <a href="#founding" class="pricing-cta">Get started</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Small team</div>
+        <div class="pricing-price">£1,800<span>/mo</span></div>
+        <div class="pricing-cadence">Up to 5 users, billed monthly</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">All 8 tools included</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Team onboarding session</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Email support</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-off"><div class="feat-dash"></div></div><div class="feat-text">Custom AI partners</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-off"><div class="feat-dash"></div></div><div class="feat-text">Custom branded platform (on request)</div></div>
+        </div>
+        <a href="#founding" class="pricing-cta">Get started</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Most recommended</div>
+        <div class="pricing-tier">Full team</div>
+        <div class="pricing-price">£3,200<span>/mo</span></div>
+        <div class="pricing-cadence">Up to 15 users, billed monthly</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">All 8 tools included</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Team onboarding session</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Monthly check-in call</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Priority support</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-off"><div class="feat-dash"></div></div><div class="feat-text">Custom branded platform (on request)</div></div>
+        </div>
+        <a href="#founding" class="pricing-cta featured-cta">Get started</a>
+      </div>
+
+      <div class="pricing-card">
+        <div class="pricing-tier">Enterprise</div>
+        <div class="pricing-price">£5,000<span>+/mo</span></div>
+        <div class="pricing-cadence">Unlimited users, custom setup</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-features">
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">All 8 tools included</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Custom AI work partners</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Custom branded platform</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Dedicated account manager</div></div>
+          <div class="pricing-feat"><div class="feat-icon feat-icon-on"><div class="feat-check"></div></div><div class="feat-text on">Priority support, same-day response</div></div>
+        </div>
+        <a href="#founding" class="pricing-cta">Talk to us</a>
+      </div>
+
+    </div>
+    <div class="pricing-note">All plans include a <a href="#founding">4-week founding partner trial</a> for qualifying teams. No credit card required.</div>
+  </div>
+</section>
+
+<!-- FOUNDING PARTNER -->
+<section class="section" id="founding">
+  <div class="container">
+    <div class="founding-wrap">
+      <div class="founding-glow"></div>
+      <div class="founding-badge">
+        <div class="founding-badge-dot"></div>
+        <div class="founding-badge-text">Now accepting applications</div>
+      </div>
+      <h2 class="display-sm founding-title">Become a founding partner.</h2>
+      <p class="founding-sub">We're inviting a small number of luxury new development sales teams to shape our IntelliEstate platform from the ground up - 4 weeks of complete platform access, completely free, in exchange for your honest feedback.</p>
+      <div class="founding-form">
+        <input class="founding-input" type="email" placeholder="Your work email address" id="founding-email"/>
+        <button class="btn-primary" onclick="applyFounding()">Apply now →</button>
+      </div>
+      <div class="founding-disclaimer" id="founding-msg">We'll be in touch within 48 hours. No spam.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">Intelli<span>Void</span></div>
+      <div class="footer-links">
+        <a href="#product" class="footer-link">Product</a>
+        <a href="#pricing" class="footer-link">Pricing</a>
+        <a href="#founding" class="footer-link">Early access</a>
+      </div>
+      <div class="footer-copy">© 2025 IntelliVoid. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Tool items link to features page
+
+// Tool hover
+document.querySelectorAll('.tool-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.tool-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+
+// Founding partner form
+function applyFounding() {
+  const email = document.getElementById('founding-email').value.trim();
+  if (!email || !email.includes('@')) {
+    document.getElementById('founding-msg').textContent = 'Please enter a valid email address.';
+    document.getElementById('founding-msg').style.color = '#D85A30';
+    return;
+  }
+  document.getElementById('founding-msg').textContent = "You're on the list. We'll be in touch within 48 hours.";
+  document.getElementById('founding-msg').style.color = '#C9B97A';
+  document.getElementById('founding-email').value = '';
+}
+</script>
+</body>
+</html>

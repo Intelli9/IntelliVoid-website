@@ -146,10 +146,10 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
       <h1 class="page-title">Eight AI work partners.<br><em>One platform.</em></h1>
       <p class="page-sub">Every tool is built around a specific moment in the luxury new development sales day - not generic AI, but specialists that know your world.</p>
       <div class="category-tabs">
-        <button class="cat-tab active" onclick="scrollTo('content')">Content & copy</button>
-        <button class="cat-tab" onclick="scrollTo('client')">Client relations</button>
-        <button class="cat-tab" onclick="scrollTo('intelligence')">Market intelligence</button>
-        <button class="cat-tab" onclick="scrollTo('operations')">Operations</button>
+        <button class="cat-tab active" onclick="scrollToSection('content')">Content & copy</button>
+        <button class="cat-tab" onclick="scrollToSection('client')">Client relations</button>
+        <button class="cat-tab" onclick="scrollToSection('intelligence')">Market intelligence</button>
+        <button class="cat-tab" onclick="scrollToSection('operations')">Operations</button>
       </div>
     </div>
   </div>
@@ -188,9 +188,11 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="18" height="18" rx="3" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M7 8h8M7 11h5M7 14h6" stroke="#C9B97A" stroke-width="1.3" stroke-linecap="round"/></svg>
           </div>
           <div class="tool-name">Social Media Generator</div>
-          <div class="tool-desc">A full week of social content from a single development brief - Instagram captions, LinkedIn posts, story scripts and newsletter paragraphs, ready to publish.</div>
+          <div class="tool-desc">A full week of SEO and GEO-optimised social content from a single development brief - Instagram captions, LinkedIn posts, story scripts and newsletter paragraphs, built to be found by both people and AI search tools.</div>
           <div class="tool-features">
             <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">5 content formats from one brief</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">SEO-optimised copy to improve search visibility for your development</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">GEO-optimised for AI search tools like ChatGPT, Perplexity and Google SGE</div></div>
             <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Milestone mode: topping out, show home, sales launches</div></div>
             <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Hashtag and platform optimisation built in</div></div>
           </div>
@@ -366,10 +368,14 @@ window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
 });
 
-function scrollTo(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
-  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+function scrollToSection(id) {
+  var el = document.getElementById(id);
+  if (!el) return;
+  var offset = 100;
+  var top = el.getBoundingClientRect().top + window.pageYOffset - offset;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+  document.querySelectorAll('.cat-tab').forEach(function(t){ t.classList.remove('active'); });
+  event.currentTarget.classList.add('active');
 }
 </script>
 

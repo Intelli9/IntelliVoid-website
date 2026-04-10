@@ -527,7 +527,7 @@ footer {
           <div class="tool-item-desc">Personalised follow-up emails after every site visit, referencing exactly what the buyer saw, said and felt.</div>
         </div>
         <div class="tool-arrow">&#8594;</div>
-      </div>
+      </a>
 
       <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
         <div class="tool-icon-wrap">
@@ -538,7 +538,7 @@ footer {
           <div class="tool-item-desc">Handles post-reservation buyer updates, solicitor chasing and exchange progression - the task that eats 34% of every agent's working day.</div>
         </div>
         <div class="tool-arrow">&#8594;</div>
-      </div>
+      </a>
 
       <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
         <div class="tool-icon-wrap">
@@ -549,7 +549,7 @@ footer {
           <div class="tool-item-desc">Polished headlines, descriptions and social captions in seconds - including an off-plan mode for properties that do not exist yet.</div>
         </div>
         <div class="tool-arrow">&#8594;</div>
-      </div>
+      </a>
 
       <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
         <div class="tool-icon-wrap">
@@ -560,7 +560,7 @@ footer {
           <div class="tool-item-desc">Generates professional investor summaries covering gross yield, capital growth case and area fundamentals - the document agents currently produce manually.</div>
         </div>
         <div class="tool-arrow">&#8594;</div>
-      </div>
+      </a>
 
       <a href="features.html" style="text-decoration:none;color:inherit;" class="tool-item">
         <div class="tool-icon-wrap">
@@ -571,7 +571,7 @@ footer {
           <div class="tool-item-desc">Walk into every viewing fully prepared - personalised buyer briefing, talking points, likely objections and a suggested close.</div>
         </div>
         <div class="tool-arrow">&#8594;</div>
-      </div>
+      </a>
 
     </div>
 
@@ -742,10 +742,10 @@ async function applyFounding() {
   msg.textContent = 'Sending...';
   msg.style.color = '#C9B97A';
   try {
-    var res = await fetch('https://formspree.io/f/xjgppeed', {
+    var res = await fetch('https://tally.so/r/68O1JY', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email, source: 'IntelliVoid founding partner form' })
+      body: JSON.stringify({ email: email })
     });
     if (res.ok) {
       msg.textContent = 'You are on the list. We will be in touch within 48 hours.';

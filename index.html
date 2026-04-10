@@ -731,16 +731,34 @@ document.querySelectorAll('.tool-item').forEach(item => {
 });
 
 // Founding partner form
-function applyFounding() {
-  const email = document.getElementById('founding-email').value.trim();
-  if (!email || !email.includes('@')) {
-    document.getElementById('founding-msg').textContent = 'Please enter a valid email address.';
-    document.getElementById('founding-msg').style.color = '#D85A30';
+async function applyFounding() {
+  var email = document.getElementById('founding-email').value.trim();
+  var msg = document.getElementById('founding-msg');
+  if (!email || email.indexOf('@') === -1) {
+    msg.textContent = 'Please enter a valid email address.';
+    msg.style.color = '#D85A30';
     return;
   }
-  document.getElementById('founding-msg').textContent = "You're on the list. We'll be in touch within 48 hours.";
-  document.getElementById('founding-msg').style.color = '#C9B97A';
-  document.getElementById('founding-email').value = '';
+  msg.textContent = 'Sending...';
+  msg.style.color = '#C9B97A';
+  try {
+    var res = await fetch('https://formspree.io/f/xjgppeed', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'IntelliVoid founding partner form' })
+    });
+    if (res.ok) {
+      msg.textContent = 'You are on the list. We will be in touch within 48 hours.';
+      msg.style.color = '#C9B97A';
+      document.getElementById('founding-email').value = '';
+    } else {
+      msg.textContent = 'Something went wrong. Please email us directly at connect@intellivoidai.com';
+      msg.style.color = '#D85A30';
+    }
+  } catch(e) {
+    msg.textContent = 'Something went wrong. Please email us directly at connect@intellivoidai.com';
+    msg.style.color = '#D85A30';
+  }
 }
 </script>
 </body>

@@ -744,8 +744,8 @@ async function applyFounding() {
   try {
     var res = await fetch('https://tally.so/r/68O1JY', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email })
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'email=' + encodeURIComponent(email)
     });
     if (res.ok) {
       msg.textContent = 'You are on the list. We will be in touch within 48 hours.';

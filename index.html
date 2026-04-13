@@ -695,11 +695,10 @@ footer {
       </div>
       <h2 class="display-sm founding-title">Become a founding partner.</h2>
       <p class="founding-sub">We're inviting a small number of luxury new development sales teams to shape our IntelliEstate platform from the ground up - 4 weeks of complete platform access, completely free, in exchange for your honest feedback.</p>
-      <div class="founding-form">
-        <input class="founding-input" type="email" placeholder="Your work email address" id="founding-email"/>
-        <button class="btn-primary" onclick="applyFounding()">Apply now →</button>
+      <div style="margin-bottom:16px;">
+        <a href="https://tally.so/r/68O1JY" target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;padding:16px 36px;background:var(--accent);color:var(--black);border-radius:var(--radius);text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='#E8D89A'" onmouseout="this.style.background='#C9B97A'">Apply for founding partner access &#8594;</a>
       </div>
-      <div class="founding-disclaimer" id="founding-msg">We'll be in touch within 48 hours. No spam.</div>
+      <div class="founding-disclaimer">Completely free for 4 weeks. No credit card. We will be in touch within 48 hours.</div>
     </div>
   </div>
 </section>
@@ -731,34 +730,10 @@ document.querySelectorAll('.tool-item').forEach(item => {
 });
 
 // Founding partner form
-async function applyFounding() {
-  var email = document.getElementById('founding-email').value.trim();
+function handleSubmit(e) {
   var msg = document.getElementById('founding-msg');
-  if (!email || email.indexOf('@') === -1) {
-    msg.textContent = 'Please enter a valid email address.';
-    msg.style.color = '#D85A30';
-    return;
-  }
-  msg.textContent = 'Sending...';
+  msg.textContent = 'You are on the list. We will be in touch within 48 hours.';
   msg.style.color = '#C9B97A';
-  try {
-    var res = await fetch('https://tally.so/r/68O1JY', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: 'email=' + encodeURIComponent(email)
-    });
-    if (res.ok) {
-      msg.textContent = 'You are on the list. We will be in touch within 48 hours.';
-      msg.style.color = '#C9B97A';
-      document.getElementById('founding-email').value = '';
-    } else {
-      msg.textContent = 'Something went wrong. Please email us directly at connect@intellivoidai.com';
-      msg.style.color = '#D85A30';
-    }
-  } catch(e) {
-    msg.textContent = 'Something went wrong. Please email us directly at connect@intellivoidai.com';
-    msg.style.color = '#D85A30';
-  }
 }
 </script>
 </body>

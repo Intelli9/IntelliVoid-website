@@ -117,7 +117,6 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
   .cta-wrap .btn-primary, .cta-wrap .btn-ghost { width: 100%; justify-content: center; }
 }
 </style>
-</head>
 <body>
 
 <nav id="nav">
@@ -161,13 +160,50 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
     <div class="category-group" id="content">
       <div class="category-header">
         <div class="category-line"></div>
-        <div class="category-title">Content & copy</div>
+        <div class="category-title">Content &amp; copy</div>
         <div class="category-line"></div>
       </div>
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card featured">
           <div class="tool-glow"></div>
           <div class="tool-num">01</div>
+          <div class="tool-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="18" height="3" rx="1.5" fill="#C9B97A"/><rect x="2" y="8" width="13" height="3" rx="1.5" fill="#C9B97A" opacity="0.6"/><rect x="2" y="14" width="15" height="3" rx="1.5" fill="#C9B97A" opacity="0.4"/></svg>
+          </div>
+          <div class="tool-name">Listing Copy Writer</div>
+          <div class="tool-desc">Generate polished, SEO-optimised listing copy in seconds  -  tailored to the buyer type, tone, and property. Enter the search terms buyers actually use and the tool weaves them naturally throughout the copy, so your listings rank on Google as well as converting viewers into buyers.</div>
+          <div class="tool-features">
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">SEO keyword integration  -  naturally embeds the search terms buyers use so listings rank organically on Google</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Headline, description, bullet highlights and social caption  -  all SEO-considered</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Portal formatter  -  instantly outputs separate versions formatted for Rightmove, Zoopla and OnTheMarket</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Off-plan mode  -  sells from floor plan and finish spec for properties that don't exist yet</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Four buyer types and four tone options for fully tailored output</div></div>
+          </div>
+          <span class="tool-badge">Core tool</span>
+          <button onclick="openDemo('listing')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
+        </div>
+        <div class="tool-card">
+          <div class="tool-num">01</div>
+          <div class="tool-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="18" height="18" rx="3" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M7 8h8M7 11h5M7 14h6" stroke="#C9B97A" stroke-width="1.3" stroke-linecap="round"/></svg>
+          </div>
+          <div class="tool-name">Social Media Generator</div>
+          <div class="tool-desc">The only property content tool built for both traditional SEO and GEO  -  the new standard for AI-powered search. As buyers increasingly search on ChatGPT, Perplexity and Google AI, the agencies that appear in those answers will dominate their market. This tool builds that presence automatically.</div>
+          <div class="tool-features">
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Q&A post format  -  structured specifically to be cited by ChatGPT, Perplexity and Google AI when buyers search for properties or agents in your area</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Local market data integration  -  weaves real statistics into content, which is what AI search tools look for when deciding what to cite as authoritative</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Full week of content from one brief  -  Instagram, LinkedIn, story script, newsletter paragraph</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">SEO keyword report  -  shows exactly which search terms have been embedded so agents understand what they are building over time</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Milestone mode  -  new instruction, sold agreed, open day, market updates</div></div>
+          </div>
+          <span class="tool-badge new-badge">New</span>
+          <button onclick="openDemo('social')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
+        </div>
+      </div>
+<div class="tool-row">
+        <div class="tool-card featured">
+          <div class="tool-glow"></div>
+          <div class="tool-num">02</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="18" height="3" rx="1.5" fill="#C9B97A"/><rect x="2" y="8" width="13" height="3" rx="1.5" fill="#C9B97A" opacity="0.6"/><rect x="2" y="14" width="15" height="3" rx="1.5" fill="#C9B97A" opacity="0.4"/></svg>
           </div>
@@ -209,10 +245,45 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
         <div class="category-title">Client relations</div>
         <div class="category-line"></div>
       </div>
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card featured">
           <div class="tool-glow"></div>
           <div class="tool-num">03</div>
+          <div class="tool-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 5h18v11a1 1 0 01-1 1H3a1 1 0 01-1-1V5z" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M2 5l9 7 9-7" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
+          </div>
+          <div class="tool-name">Follow-Up Agent</div>
+          <div class="tool-desc">Personalised follow-up emails after every site visit - referencing exactly what the buyer saw, said and felt. Now includes a full 4-email nurture sequence and WhatsApp version.</div>
+          <div class="tool-features">
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Single email or full 4-email nurture sequence</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">WhatsApp message version alongside email</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Gone quiet re-engagement mode</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Two subject line options for A/B testing</div></div>
+          </div>
+          <span class="tool-badge">Core tool</span>
+          <button onclick="openDemo('followup')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
+        </div>
+        <div class="tool-card">
+          <div class="tool-num">03</div>
+          <div class="tool-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M3 20c0-4.418 3.582-7 8-7s8 2.582 8 7" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
+          </div>
+          <div class="tool-name">Tour Prep Briefing</div>
+          <div class="tool-desc">Walk into every viewing fully prepared - with a personalised buyer briefing, units to prioritise, tailored talking points, objection handling, and a suggested close.</div>
+          <div class="tool-features">
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Buyer snapshot and unit strategy</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Lifestyle-matched talking points</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Completion mode for post-reservation visits</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">De-snagging communication handler</div></div>
+          </div>
+          <span class="tool-badge">Core tool</span>
+          <button onclick="openDemo('tour')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
+        </div>
+      </div>
+<div class="tool-row">
+        <div class="tool-card featured">
+          <div class="tool-glow"></div>
+          <div class="tool-num">04</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 5h18v11a1 1 0 01-1 1H3a1 1 0 01-1-1V5z" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M2 5l9 7 9-7" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
           </div>
@@ -244,7 +315,7 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
           <button onclick="openDemo('tour')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
         </div>
       </div>
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card tool-card-full">
           <div class="tool-glow"></div>
           <div class="tool-num">05</div>
@@ -263,31 +334,10 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
           <button onclick="openDemo('progression')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
         </div>
       </div>
-    </div>
-
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card tool-card-full">
           <div class="tool-glow"></div>
           <div class="tool-num">06</div>
-          <div class="tool-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 17V8l8-6 8 6v9a1 1 0 01-1 1H4a1 1 0 01-1-1z" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M8 18v-5h6v5" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
-          </div>
-          <div class="tool-name">Valuation Follow-Up Agent</div>
-          <div class="tool-desc">Most estate agents lose instructions not because of their valuation - but because of what happens after. The Valuation Follow-Up Agent crafts compelling, personalised follow-ups that address each vendor's specific situation, tactfully handle competing quotes, and keep your agency front of mind until the decision is made.</div>
-          <div class="tool-features">
-            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Four situation modes: comparing agents, not ready to list, gone quiet, competing against overpriced rival</div></div>
-            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Addresses competitor higher valuations honestly and confidently without being negative</div></div>
-            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Verbal talking points for the follow-up phone call - the things better said than written</div></div>
-            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Long-term vendor nurture sequences for not-ready sellers</div></div>
-            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Pre-valuation prep mode  -  generates a full preparation brief before the visit so agents walk in ready to win the instruction</div></div>
-          </div>
-          <span class="tool-badge new-badge">New</span>
-        </div>
-      </div>
-      <div class="tool-row">
-        <div class="tool-card tool-card-full">
-          <div class="tool-glow"></div>
-          <div class="tool-num">07</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 5h18v11a1 1 0 01-1 1H3a1 1 0 01-1-1V5z" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M2 5l9 7 9-7" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
           </div>
@@ -303,10 +353,26 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
           <span class="tool-badge new-badge">New</span>
         </div>
       </div>
-    </div>
-
-
-      <div class="tool-row">
+<div class="tool-row">
+        <div class="tool-card tool-card-full">
+          <div class="tool-glow"></div>
+          <div class="tool-num">07</div>
+          <div class="tool-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 17V8l8-6 8 6v9a1 1 0 01-1 1H4a1 1 0 01-1-1z" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M8 18v-5h6v5" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
+          </div>
+          <div class="tool-name">Valuation Follow-Up Agent</div>
+          <div class="tool-desc">Most estate agents lose instructions not because of their valuation - but because of what happens after. The Valuation Follow-Up Agent crafts compelling, personalised follow-ups that address each vendor's specific situation, tactfully handle competing quotes, and keep your agency front of mind until the decision is made.</div>
+          <div class="tool-features">
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Four situation modes: comparing agents, not ready to list, gone quiet, competing against overpriced rival</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Addresses competitor higher valuations honestly and confidently without being negative</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Verbal talking points for the follow-up phone call - the things better said than written</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Long-term vendor nurture sequences for not-ready sellers</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Pre-valuation prep mode  -  generates a full preparation brief before the visit so agents walk in ready to win the instruction</div></div>
+          </div>
+          <span class="tool-badge new-badge">New</span>
+        </div>
+      </div>
+<div class="tool-row">
         <div class="tool-card tool-card-full">
           <div class="tool-glow"></div>
           <div class="tool-num">08</div>
@@ -332,9 +398,9 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
         <div class="category-title">Market intelligence</div>
         <div class="category-line"></div>
       </div>
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card tool-card-full">
-          <div class="tool-num">07</div>
+          <div class="tool-num">09</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 17V6l7-4 7 4v11l-7 4-7-4z" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
           </div>
@@ -350,7 +416,40 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
         </div>
         <div class="tool-card tool-card-full">
           <div class="tool-glow"></div>
-          <div class="tool-num">08</div>
+          <div class="tool-num">09</div>
+          <div class="tool-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="12" width="4" height="8" rx="1" fill="#C9B97A" opacity="0.4"/><rect x="9" y="7" width="4" height="13" rx="1" fill="#C9B97A" opacity="0.7"/><rect x="16" y="2" width="4" height="18" rx="1" fill="#C9B97A"/></svg>
+          </div>
+          <div class="tool-name">Investor Pack Builder</div>
+          <div class="tool-desc">Generate a professional investor summary document from a few inputs - covering gross yield, net yield, capital growth case and area fundamentals. The document agents currently spend hours producing manually.</div>
+          <div class="tool-features">
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Gross and net yield calculation with narrative</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Capital growth case with comparable evidence</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Area fundamentals and demand drivers</div></div>
+          </div>
+          <span class="tool-badge new-badge">New</span>
+          <button onclick="openDemo('investor')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
+        </div>
+      </div>
+<div class="tool-row">
+        <div class="tool-card tool-card-full">
+          <div class="tool-num">10</div>
+          <div class="tool-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 17V6l7-4 7 4v11l-7 4-7-4z" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
+          </div>
+          <div class="tool-name">Market Report Builder</div>
+          <div class="tool-desc">Turn comparable sales data into a compelling buyer-ready market summary in seconds. Address hesitation, justify price and build conviction with structured evidence.</div>
+          <div class="tool-features">
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Structured comparable input table with auto price per sq ft</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">End-user and investor-specific versions</div></div>
+            <div class="tool-feat"><div class="feat-dot"></div><div class="feat-text">Addresses four buyer concerns: price, investment, values, area</div></div>
+          </div>
+          <span class="tool-badge">Core tool</span>
+          <button onclick="openDemo('market')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
+        </div>
+        <div class="tool-card tool-card-full">
+          <div class="tool-glow"></div>
+          <div class="tool-num">10</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="12" width="4" height="8" rx="1" fill="#C9B97A" opacity="0.4"/><rect x="9" y="7" width="4" height="13" rx="1" fill="#C9B97A" opacity="0.7"/><rect x="16" y="2" width="4" height="18" rx="1" fill="#C9B97A"/></svg>
           </div>
@@ -373,9 +472,9 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
         <div class="category-title">Operations</div>
         <div class="category-line"></div>
       </div>
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card tool-card-full">
-          <div class="tool-num">09</div>
+          <div class="tool-num">11</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="14" rx="2" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M7 5V4a4 4 0 018 0v1" stroke="#C9B97A" stroke-width="1.3" fill="none"/><circle cx="11" cy="12" r="2" stroke="#C9B97A" stroke-width="1.3" fill="none"/></svg>
           </div>
@@ -391,12 +490,10 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
           <button onclick="openDemo('crm')" style="margin-top:16px;display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--accent);background:rgba(201,185,122,0.08);border:1px solid rgba(201,185,122,0.2);border-radius:var(--radius);padding:7px 14px;cursor:pointer;transition:background 0.2s;" onmouseover="this.style.background='rgba(201,185,122,0.15)'" onmouseout="this.style.background='rgba(201,185,122,0.08)'" >See demo &rarr;</button>
         </div>
       </div>
-    </div>
-
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card tool-card-full">
           <div class="tool-glow"></div>
-          <div class="tool-num">10</div>
+          <div class="tool-num">12</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z" stroke="#C9B97A" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg>
           </div>
@@ -411,12 +508,10 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
           <span class="tool-badge new-badge">New</span>
         </div>
       </div>
-    </div>
-
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card tool-card-full">
           <div class="tool-glow"></div>
-          <div class="tool-num">11</div>
+          <div class="tool-num">13</div>
           <div class="tool-icon-wrap">
             <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="2" width="18" height="18" rx="3" stroke="#C9B97A" stroke-width="1.3" fill="none"/><path d="M6 6h4M12 6h4M6 11h4M12 11h4M6 16h4M12 16h4" stroke="#C9B97A" stroke-width="1.3" stroke-linecap="round"/></svg>
           </div>
@@ -433,11 +528,7 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
           <span class="tool-badge new-badge" style="margin-left:10px;">New</span>
         </div>
       </div>
-    </div>
-
-
-
-      <div class="tool-row">
+<div class="tool-row">
         <div class="tool-card tool-card-full">
           <div class="tool-glow"></div>
           <div class="tool-num">14</div>
@@ -455,7 +546,6 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
           <span class="tool-badge new-badge">New</span>
         </div>
       </div>
-    </div>
 
   </div>
 </section>
@@ -489,6 +579,8 @@ footer { padding: 48px 0 32px; border-top: 1px solid var(--border); }
   </div>
 </footer>
 
+
+
 <script>
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
@@ -503,115 +595,6 @@ function scrollToSection(id) {
   document.querySelectorAll('.cat-tab').forEach(function(t){ t.classList.remove('active'); });
   event.currentTarget.classList.add('active');
 }
-</script>
-
-<!-- DEMO MODAL -->
-<div class="modal-overlay" id="demo-modal" onclick="closeDemo(event)">
-  <div class="modal">
-    <div class="modal-header">
-      <div class="modal-title" id="modal-title">Demo</div>
-      <button class="modal-close" onclick="closeModal()">&#10005;</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-demo-bar">
-        <div class="modal-demo-dot" style="background:#FF5F57"></div>
-        <div class="modal-demo-dot" style="background:#FFBD2E"></div>
-        <div class="modal-demo-dot" style="background:#28CA41"></div>
-        <div class="modal-demo-url" id="modal-url"></div>
-      </div>
-      <div class="modal-demo-inner" id="modal-content"></div>
-    </div>
-  </div>
-</div>
-
-<script>
-
-var demoData = {
-  listing: {
-    title: "Listing Copy Writer - live demo",
-    url: "IntelliEstate - Listing Copy Writer",
-    inputs: [["Development","The Ashford Residences, Nine Elms"],["Unit type","3-bed penthouse - £3,850,000"],["Key features","Private terrace, chef's kitchen, concierge, river views"],["Buyer","End-user / family - Aspirational tone"]],
-    outputs: [["Headline","Above the city. Beyond expectation."],["Description","Set at the crown of The Ashford Residences, this exceptional three-bedroom penthouse offers an uninterrupted dialogue with the Thames. A private wraparound terrace, a kitchen conceived for those who entertain seriously, and the quiet confidence of full concierge service combine to create a home that operates entirely on its own terms."],["Social caption","The penthouse at The Ashford. Where the city falls quiet and the river takes over."]]
-  },
-  social: {
-    title: "Social Media Generator - live demo",
-    url: "IntelliEstate - Social Media Generator",
-    inputs: [["Development","The Ashford Residences, Nine Elms"],["Milestone","Show home now open"],["Platforms","Instagram + LinkedIn"],["Tone","Aspirational"]],
-    outputs: [["Instagram caption","The wait is over. The Ashford show home is open - and it is everything you imagined. Book your private viewing today."],["LinkedIn post","Today marks a milestone for The Ashford Residences. Our show home is now open for private viewings - a rare opportunity to experience one of London's most anticipated new developments in person."],["Story script","Swipe to see inside. The Ashford. Now open."]]
-  },
-  followup: {
-    title: "Follow-Up Agent - live demo",
-    url: "IntelliEstate - Follow-Up Agent",
-    inputs: [["Buyer","James and Sarah Mitchell"],["Units viewed","Unit 12A, Penthouse 8B"],["Visit notes","Loved city views on 12A. Sarah unsure about kitchen size. Want to bring parents."],["Timing","Same day - Warm and personal"]],
-    outputs: [["Subject line","That view from 12A - and what comes next"],["Opening","James, Sarah - it was a genuine pleasure showing you around The Ashford this afternoon. The way Sarah lit up on the terrace of 12A told me everything I needed to know."],["Next step","Propose a second visit with their parents to see Unit 14A. The larger kitchen directly addresses the concern raised."]]
-  },
-  tour: {
-    title: "Tour Prep Briefing - live demo",
-    url: "IntelliEstate - Tour Prep Briefing",
-    inputs: [["Buyer","James and Sarah Mitchell"],["Budget","£900k - £1.1m"],["Units to show","Unit 12A, Unit 14A"],["Priority","Family home"]],
-    outputs: [["Buyer snapshot","Family-driven decision with lifestyle at the centre. The terrace won them last time - lead with outdoor living. Sarah leads on interiors, James needs the financial logic."],["Show 14A first","Start with 14A - the larger kitchen directly addresses the concern from the last visit. Let her discover the difference herself, then move to 12A so the terrace closes the argument."],["Suggested close","What would need to be true for The Ashford to be the obvious choice for your family?"]]
-  },
-  progression: {
-    title: "Sales Progression Agent - live demo",
-    url: "IntelliEstate - Sales Progression Agent",
-    inputs: [["Buyer","James and Sarah Mitchell"],["Unit reserved","Unit 12A - £985,000"],["Stage","14 days post-reservation"],["Issue","Solicitor not yet instructed"]],
-    outputs: [["Buyer update","James, Sarah - a quick update on Unit 12A. We are now 14 days into your reservation period. The next step is instructing your solicitor if you have not already done so."],["Solicitor chase","We are writing regarding the reservation of Unit 12A by James and Sarah Mitchell. We understand solicitors are yet to be instructed and would be grateful for an update at your earliest convenience."],["Manager note","Mitchell - 12A. Day 14. Solicitor not instructed. Buyer update sent. Chase scheduled Day 17."]]
-  },
-  market: {
-    title: "Market Report Builder - live demo",
-    url: "IntelliEstate - Market Report Builder",
-    inputs: [["Development","The Ashford Residences, SW8"],["Asking price","£950,000 - 2-bed"],["Comparable sales","Keybridge SW8 - £920k. Rivington House - £975k."],["Buyer concern","Is the price justified?"]],
-    outputs: [["Headline","At £950,000, The Ashford sits precisely in line with the best Nine Elms currently offers."],["Market context","Nine Elms has seen consistent price growth since the Northern Line extension, with values averaging £1,100 per sq ft across the zone."],["Investment case","With Battersea Power Station now fully operational and the area among the strongest Zone 1-2 fundamentals in London, long-term value retention is well supported."]]
-  },
-  investor: {
-    title: "Investor Pack Builder - live demo",
-    url: "IntelliEstate - Investor Pack Builder",
-    inputs: [["Unit price","£750,000 - 1-bed"],["Est. rental value","£3,200 per month"],["Area","Nine Elms, SW8"],["Area avg yield","4.8% gross"]],
-    outputs: [["Gross yield","5.1% gross yield based on £3,200 pcm estimated rental against £750,000 purchase price - ahead of the Nine Elms area average of 4.8%."],["Capital growth case","Nine Elms has delivered 18% capital growth over the past 5 years, supported by major infrastructure investment and the Battersea regeneration programme."],["Covering narrative","Unit 12A represents a compelling investment opportunity in one of London's most active regeneration zones, combining strong immediate yield with a well-supported long-term capital growth case."]]
-  },
-  calculator: {
-    title: "Investment Calculator - live demo",
-    url: "IntelliEstate - Investment Calculator",
-    inputs: [["Purchase price","£750,000"],["Monthly rental income","£3,200"],["Annual service charge","£3,000"],["Management fee","10%"],["Deposit","25%"],["Mortgage rate","4.5%"],["Term","25 years"]],
-    outputs: [["Gross yield","5.12%"],["Net yield","3.84%"],["Monthly mortgage","£3,287"],["Monthly cashflow","+£147"],["Stamp duty (BTL)","£32,500"],["Total upfront needed","£220,000"]]
-  },
-  offer: {
-    title: "Offer & Negotiation Assistant - live demo",
-    url: "IntelliEstate - Offer & Negotiation Assistant",
-    inputs: [["Property","14 Blackheath Rise, SE3"],["Asking price","£650,000"],["Offer received","£610,000"],["Situation","First offer received"]],
-    outputs: [["Situation analysis","At 93.8% of asking, this is a serious offer from a motivated buyer. The gap of £40,000 is bridgeable  -  the vendor has room to move and the buyer has shown genuine intent."],["Vendor communication","I am pleased to present an offer of £610,000 from a proceedable buyer with mortgage agreed in principle and no chain. I would recommend a counter at £635,000 to keep both parties engaged."],["Buyer communication","Thank you for your offer on 14 Blackheath Rise. I have presented this to the vendor and will be in touch as soon as I have an update  -  typically within 24 hours."]]
-  },
-  crm: {
-    title: "CRM Note Taker - live demo",
-    url: "IntelliEstate - CRM Note Taker",
-    inputs: [["Buyer","James and Sarah Mitchell"],["Raw notes","loved 12a terrace, sarah unsure kitchen size, james asked service charge, kids local school, also looking chelsea, call thursday"],["Type","Site visit"],["Development","The Ashford Residences"]],
-    outputs: [["Buyer profile","Professional couple, likely late 30s-40s, family with school-age children. Lifestyle-led - terrace and entertaining space key. Comparing Nine Elms with Chelsea."],["Lead temperature","Warm - Genuine emotional response to terrace. Chelsea competition is key risk. Actively progressing but not yet at decision point."],["Next action","Call Thursday as agreed. Prepare service charge breakdown and Chelsea comparison. Propose second viewing with parents."]]
-  }
-};
-
-function openDemo(id) {
-  var d = demoData[id];
-  if (!d) return;
-  document.getElementById("modal-title").textContent = d.title;
-  document.getElementById("modal-url").textContent = d.url;
-  var inp = d.inputs.map(function(i){ return '<div><div class="demo-label">'+i[0]+'</div><div class="demo-input">'+i[1]+'</div></div>'; }).join("");
-  var out = d.outputs.map(function(o){ return '<div class="demo-output-block"><div class="demo-output-label">'+o[0]+'</div><div class="demo-output-text">'+o[1]+'</div></div>'; }).join("");
-  document.getElementById("modal-content").innerHTML = '<div class="modal-input-group">'+inp+'</div><div class="modal-output-group">'+out+'</div>';
-  document.getElementById("demo-modal").classList.add("open");
-  document.body.style.overflow = "hidden";
-}
-
-function closeModal() {
-  document.getElementById("demo-modal").classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-function closeDemo(e) {
-  if (e.target === document.getElementById("demo-modal")) closeModal();
-}
-
-document.addEventListener("keydown", function(e){ if(e.key === "Escape") closeModal(); });
-
 </script>
 </body>
 </html>
